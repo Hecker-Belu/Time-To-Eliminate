@@ -5,10 +5,13 @@ public class Player : MonoBehaviour
     public float Speed = 1f;
     public float JumpForce = 1f;
 
-    public GameObject head;
+    public Transform head, camera, orientation;
+    public float sensitivity = 1f;
 
     private Rigidbody rb;
-    private Vector2 dir;
+    private Vector3 dir;
+
+    private float pitch;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,18 +21,16 @@ public class Player : MonoBehaviour
 
     void Look()
     {
-        var mouse_x = Input.GetAxisRaw("Mouse X") * 50f * Time.fixedDeltaTime;
-        var mouse_y = Input.GetAxisRaw("Mouse Y") * 50f * Time.fixedDeltaTime;
+        float mouseX = Input.GetAxisRaw("Mouse X") * sensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * sensitivity * Time.deltaTime;
 
-        Vector3 rot = head.transform.localRotation.eulerAngles;
 
-        transform.rotation = transform.rotation * Quaternion.Euler(1, mouse_x, 1);
     }
 
     void GetInput()
     {
         dir.x = Input.GetAxisRaw("Horizontal");
-        dir.y = Input.GetAxisRaw("Vertical");
+        dir.z = Input.GetAxisRaw("Vertical");
     }
 
     void Movement()
