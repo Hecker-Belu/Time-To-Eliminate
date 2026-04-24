@@ -210,7 +210,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973347576}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4d1bfc2eecc66c34d94a3384ad375841, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccde016a7786d5d469a85e1ea8b7c3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follow: {fileID: 2010280428}
+  player: {fileID: 2010280428}
 --- !u!4 &1134423445
 Transform:
   m_ObjectHideFlags: 0
@@ -385,7 +385,7 @@ Transform:
   m_GameObject: {fileID: 1134423443}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.9445913, y: -1.6093892, z: 10.707502}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -452,7 +452,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 90
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -478,8 +478,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253428944}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.9445913, y: 1.5543892, z: -10.707502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -542,6 +542,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3727872619430448296, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3931039915162999075, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
       propertyPath: head
       value: 
@@ -555,13 +559,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1253428947}
     - target: {fileID: 3931039915162999075, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931039915162999075, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
       propertyPath: JumpForce
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3931039915162999075, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
+      propertyPath: jumpForce
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931039915162999075, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
+      propertyPath: moveSpeed
+      value: 4600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931039915162999075, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
+      propertyPath: playerCam
+      value: 
+      objectReference: {fileID: 1134423445}
+    - target: {fileID: 3931039915162999075, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
       propertyPath: orientation
       value: 
       objectReference: {fileID: 2086687178}
+    - target: {fileID: 3931039915162999075, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 4169837144701379321, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
       propertyPath: m_Name
       value: Player

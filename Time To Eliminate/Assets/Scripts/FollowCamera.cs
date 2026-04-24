@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    public Transform follow;
+
+    public Transform player;
 
     void Update()
     {
-        transform.position = follow.position;
+        transform.position = player.transform.position;
     }
 }
