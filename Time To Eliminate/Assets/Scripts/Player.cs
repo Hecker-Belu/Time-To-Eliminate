@@ -1,14 +1,23 @@
 // Some stupid rigidbody based movement by Dani
 
 using System;
+using System.Net;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    enum State
+    {
+        Idle,
+        Walk,
+        Grappling,
+        Slash
+    }
 
     //Assingables
     public Transform playerCam;
     public Transform orientation;
+    public Animator animator;
 
     //Other
     private Rigidbody rb;
@@ -86,6 +95,7 @@ public class Player : MonoBehaviour
             StartCrouch();
         if (Input.GetKeyUp(KeyCode.LeftControl))
             StopCrouch();
+        
     }
 
     private void StartCrouch()
@@ -291,6 +301,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void UpdateState(State newState)
+    {
+        switch (newState)
+        {
+            case State.Idle:
+                animator.SetBool("walking", false);
+                break;
+            case State.Walk:
+                animator.SetBool("walking", true);
+                break;
+            case State.Grappling:
+                break;
+        }
+    }
     private void StopGrounded()
     {
         grounded = false;
