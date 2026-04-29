@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
     private void StartCrouch()
     {
         transform.localScale = crouchScale;
-        transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z);
         if (rb.linearVelocity.magnitude > 0.5f)
         {
             if (grounded)
@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
     private void StopCrouch()
     {
         transform.localScale = playerScale;
-        transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z);
     }
 
     private void Movement()
