@@ -1,15 +1,30 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
-    public Text timer;
+    public TextMeshProUGUI timer;
+    public GameObject winTouch;
+    public string NextScene;
+
     private float time = 10.0f;
+    private bool started = false;
 
     public void StartGame()
     {
         SceneManager.LoadScene("Tutorial");
+        started = true;
+    }
+
+    public void Update()
+    {
+        if (started)
+        {
+            UpdateGame();
+        }
     }
 
     public void UpdateGame()
@@ -25,8 +40,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Win()
+    {
+        if (time <= 0.0f)
+        {
+            Lose();
+        }
+        if (started)
+        {
+            started = false;
+            SceneManager.LoadScene(NextScene);
+        }
+    }
+
     public void Lose()
     {
-        print("BITCH ASS NIGGER");
+        print("You lose");
     }
 }
