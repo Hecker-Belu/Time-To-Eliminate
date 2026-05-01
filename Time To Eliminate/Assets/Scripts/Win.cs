@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class Win : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    public GameManager gameManager;
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision != null)
+        if (other.CompareTag("Player"))
         {
-            print("Thing");
+            gameManager.Win();
         }
     }
 }

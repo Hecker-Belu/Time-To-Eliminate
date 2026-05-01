@@ -7,7 +7,6 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI timer;
-    public GameObject winTouch;
     public string NextScene;
 
     private float time = 10.0f;
