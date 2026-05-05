@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public string NextScene;
 
     private float time = 10.0f;
-    private bool started = false;
+    private bool started = true;
 
     public void StartGame()
     {
@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+        print(started);
         if (time <= 0.0f)
         {
             Lose();
