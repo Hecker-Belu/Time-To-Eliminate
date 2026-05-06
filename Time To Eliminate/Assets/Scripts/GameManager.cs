@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timer;
     public string NextScene;
 
-    private float time = 10.0f;
+    private float time = 60.0f;
     private bool started = true;
 
     public void StartGame()
@@ -31,21 +31,18 @@ public class GameManager : MonoBehaviour
         if (timer != null)
         {
             time -= Time.deltaTime;
-            timer.text = time.ToString() + "s";
-            if (time <= 0.0f)
-            {
-                Lose();
-            }
+            timer.SetText(time.ToString().Substring(0, 4) + "s");
+            print(time.ToString());
+        }
+        if (time <= 0.0f)
+        {
+            Lose();
         }
     }
 
     public void Win()
     {
         print(started);
-        if (time <= 0.0f)
-        {
-            Lose();
-        }
         if (started)
         {
             started = false;
@@ -56,5 +53,6 @@ public class GameManager : MonoBehaviour
     public void Lose()
     {
         print("You lose");
+        SceneManager.LoadScene("MainMenu");
     }
 }

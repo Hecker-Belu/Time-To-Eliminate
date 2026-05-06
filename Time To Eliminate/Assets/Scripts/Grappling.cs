@@ -41,6 +41,7 @@ public class Grappling : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(camera.position, camera.forward, out hit, maxDistance, whatIsGrappleable))
         {
+            
             grapplePoint = hit.point;
             joint = player.gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
@@ -48,16 +49,26 @@ public class Grappling : MonoBehaviour
 
             float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
 
-            //The distance grapple will try to keep from grapple point. 
-            joint.maxDistance = distanceFromPoint * 0.25f;
-            joint.minDistance = distanceFromPoint * 0.10f;
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                joint.maxDistance = distanceFromPoint * 1f;
+                joint.minDistance = distanceFromPoint * 1f;
 
-            //Adjust these values to fit your game.
-            joint.spring = 4.5f;
-            joint.damper = 7f;
-            joint.massScale = 4.5f;
+                //Adjust these values to fit your game.
+                joint.spring = 0f;
+                joint.damper = 10f;
+                joint.massScale = 1f;
+            } else
+            {
+                joint.maxDistance = distanceFromPoint * 0.25f;
+                joint.minDistance = distanceFromPoint * 0.10f;
 
-            lr.positionCount = 2;
+                //Adjust these values to fit your game.
+                joint.spring = 4.5f;
+                joint.damper = 7f;
+                joint.massScale = 4.5f;
+            }
+                lr.positionCount = 2;
             currentGrapplePosition = gunTip.position;
         }
     }

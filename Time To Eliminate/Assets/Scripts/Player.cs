@@ -90,6 +90,14 @@ public class Player : MonoBehaviour
         jumping = Input.GetButton("Jump");
         crouching = Input.GetKey(KeyCode.LeftControl);
 
+        if (x != 0 || y != 0)
+        {
+            UpdateState(State.Walk);
+        } else
+        {
+            UpdateState(State.Idle);
+        }
+
         //Crouching
         if (Input.GetKeyDown(KeyCode.LeftControl))
             StartCrouch();
@@ -312,7 +320,9 @@ public class Player : MonoBehaviour
                 animator.SetBool("walking", true);
                 break;
             case State.Grappling:
-                break;
+                break; // includes a fail/success anim. grappling is handled by an external code that will set isGrappling, and isGrappleSuccess
+            case State.Slash:
+                break; // includes a slash/slash1 anim, for variation between slashes
         }
     }
     private void StopGrounded()
