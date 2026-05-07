@@ -10,11 +10,14 @@ public class Player : MonoBehaviour
     {
         Idle,
         Walk,
-        Grappling,
         Slash
     }
 
+    private State currentState = State.Idle;
+
     //Assingables
+    public GameManager manager;
+    public LayerMask enemyMask;
     public Transform playerCam;
     public Transform orientation;
     public Animator animator;
@@ -90,11 +93,10 @@ public class Player : MonoBehaviour
         jumping = Input.GetButton("Jump");
         crouching = Input.GetKey(KeyCode.LeftControl);
 
-        if (x != 0 || y != 0)
+        if ((x != 0 || y != 0) && currentState != State.Walk)
         {
             UpdateState(State.Walk);
-        } else
-        {
+        } else if (currentState != State.Idle) {
             UpdateState(State.Idle);
         }
 
@@ -103,8 +105,26 @@ public class Player : MonoBehaviour
             StartCrouch();
         if (Input.GetKeyUp(KeyCode.LeftControl))
             StopCrouch();
-        
+        if (Input.GetMouseButtonDown(0))
+            Attack();
+        print("Attacked");
     }
+
+    private void Attack()
+    {
+        UpdateState(State.Slash);
+
+        if (Physics.Raycast(playerCam.position, playerCam.forward, out RaycastHit hit, 50f))
+        {
+            if (hit.collider.CompareTag("Enemy") && hit.collider.TryGetComponent<Damagable>(out Damagable dmg))
+            {
+                dmg.Hit(1);
+            }
+        }
+
+        Debug.Log("Attacked");
+    }
+
 
     private void StartCrouch()
     {
@@ -289,6 +309,10 @@ public class Player : MonoBehaviour
         //Iterate through every collision in a physics update
         for (int i = 0; i < other.contactCount; i++)
         {
+            if (other.contacts[i].otherCollider.CompareTag("InstantDeath"))
+            {
+                manager.Lose();
+            }
             Vector3 normal = other.contacts[i].normal;
             //FLOOR
             if (IsFloor(normal))
@@ -311,20 +335,25 @@ public class Player : MonoBehaviour
 
     private void UpdateState(State newState)
     {
+        currentState = newState;
+
         switch (newState)
         {
             case State.Idle:
                 animator.SetBool("walking", false);
                 break;
+
             case State.Walk:
                 animator.SetBool("walking", true);
                 break;
-            case State.Grappling:
-                break; // includes a fail/success anim. grappling is handled by an external code that will set isGrappling, and isGrappleSuccess
+
             case State.Slash:
-                break; // includes a slash/slash1 anim, for variation between slashes
+                animator.SetBool("walking", false);
+                animator.SetTrigger("slashing");
+                break;
         }
     }
+
     private void StopGrounded()
     {
         grounded = false;

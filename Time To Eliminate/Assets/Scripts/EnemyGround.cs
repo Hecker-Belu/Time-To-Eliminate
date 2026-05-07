@@ -1,58 +1,42 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyGround : MonoBehaviour
 {
-    [Header("Player")]
     public Transform player;
 
     [Header("Movement")]
-    public float chaseForce = 1200f;
     public float turnSpeed = 8f;
     public float maxChaseDistance = 60f;
 
-    [Header("Hover")]
-    public float hoverHeight = 1.0f;
-    public float hoverForce = 4000f;
-    public float hoverDamp = 5f;
-
-    Rigidbody rb;
+    NavMeshAgent agent;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        agent = GetComponent<NavMeshAgent>();
+
+        // We handle rotation manually
+        agent.updateRotation = false;
+        agent.updateUpAxis = false; // optional if using flat ground
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (!player) return;
 
-        // DISTANCE-BASED DETECTION
-        float dist = Vector3.Distance(transform.position, player.position);
-        bool seen = dist <= maxChaseDistance;
-
-        // ALWAYS flatten direction (fixes your Y problem)
         Vector3 toPlayer = player.position - transform.position;
         Vector3 flatDir = new Vector3(toPlayer.x, 0, toPlayer.z);
 
-        Hover();
+        bool seen = flatDir.magnitude <= maxChaseDistance;
 
         if (seen)
         {
+            agent.SetDestination(player.position);
             RotateToward(flatDir);
-            MoveToward(flatDir);
         }
-    }
-
-    void Hover()
-    {
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, hoverHeight * 2f))
+        else
         {
-            float heightError = hoverHeight - hit.distance;
-            float upwardSpeed = rb.linearVelocity.y;
-            float lift = (heightError * hoverForce) - (upwardSpeed * hoverDamp);
-
-            rb.AddForce(Vector3.up * lift);
+            agent.ResetPath();
         }
     }
 
@@ -66,10 +50,5 @@ public class EnemyGround : MonoBehaviour
             targetRot,
             Time.deltaTime * turnSpeed
         );
-    }
-
-    void MoveToward(Vector3 flatDir)
-    {
-        rb.AddForce(flatDir.normalized * chaseForce * Time.fixedDeltaTime, ForceMode.Acceleration);
     }
 }
