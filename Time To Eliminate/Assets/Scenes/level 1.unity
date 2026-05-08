@@ -454,7 +454,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 1963423083}
-  NextScene: WinTemp
+  nextScene: 
+  nextText: {fileID: 0}
 --- !u!4 &391467506
 Transform:
   m_ObjectHideFlags: 0
@@ -464,7 +465,7 @@ Transform:
   m_GameObject: {fileID: 391467504}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 549.7164, y: 546.56647, z: -282.99924}
+  m_LocalPosition: {x: 549.7164, y: 546.5665, z: -282.9992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

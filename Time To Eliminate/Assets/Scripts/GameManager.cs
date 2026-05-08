@@ -11,8 +11,11 @@ public class GameManager : MonoBehaviour
     public string nextScene;
     public GameObject nextText;
     private float time = 60.0f;
-    private bool started = true;
+    private bool started = false;
     private static bool gameManagerCreated = false;
+
+
+
 
     private void Awake()
     {
