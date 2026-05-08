@@ -1,7 +1,7 @@
 // Some stupid rigidbody based movement by Dani
 
 using System;
-using System.Net;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
     // health
     private float health = 100f;
     private float maxHealth = 100f;
+    public TMP_Text healthText;
 
     void Awake()
     {
@@ -368,6 +369,8 @@ public class Player : MonoBehaviour
             health = 0;
             manager.Lose();
         }
+
+        healthText.SetText("Health: " + health);
     }
 
     private void OnTriggerEnter(Collider other)
