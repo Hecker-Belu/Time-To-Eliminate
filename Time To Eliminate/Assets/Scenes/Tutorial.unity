@@ -16460,7 +16460,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 28162300}
-  NextScene: WinTemp
+  nextScene: WinTemp
+  nextText: {fileID: 0}
 --- !u!4 &1080613634
 Transform:
   m_ObjectHideFlags: 0

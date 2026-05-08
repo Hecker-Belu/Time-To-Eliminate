@@ -8,10 +8,22 @@ using Unity.VisualScripting;
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI timer;
-    public string NextScene;
-
+    public string nextScene;
+    public GameObject nextText;
     private float time = 60.0f;
     private bool started = true;
+    private static bool gameManagerCreated = false;
+
+    private void Awake()
+    {
+        if (!gameManagerCreated)
+        {
+            gameManagerCreated = true;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
+    }
 
     public void StartGame()
     {
@@ -35,6 +47,11 @@ public class GameManager : MonoBehaviour
             timer.SetText(time.ToShortString(3) + "s");
             print(time.ToString());
         }
+        else
+        {
+            timer = GameObject.Find("Timer").GetComponent<TextMeshProUGUI>();
+        }
+
         if (time <= 0.0f)
         {
             Lose();
@@ -47,13 +64,24 @@ public class GameManager : MonoBehaviour
         if (started)
         {
             started = false;
-            SceneManager.LoadScene(NextScene);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            SceneManager.LoadScene(nextScene);
         }
     }
 
     public void Lose()
     {
         print("You lose");
+        started = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void next()
+    {
+        print("next level");
+        SceneManager.LoadScene(nextScene);
     }
 }
