@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     private float time = 60.0f;
     private bool started = false;
     private static bool gameManagerCreated = false;
+    public string[] levelName = { "Level 1", "Level 2", "Level 3", };
+    public int levelIndex = 0;
 
 
 
