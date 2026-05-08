@@ -59,6 +59,10 @@ public class Player : MonoBehaviour
     private Vector3 normalVector = Vector3.up;
     private Vector3 wallNormalVector;
 
+    // health
+    private float health = 100f;
+    private float maxHealth = 100f;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -355,6 +359,16 @@ public class Player : MonoBehaviour
         grounded = false;
     }
 
+    private void TakeDamage(float damage)
+    {
+        health -= damage;
+
+        if(health <= 0)
+        {
+            health = 0;
+            manager.Lose();
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -366,6 +380,9 @@ public class Player : MonoBehaviour
         {
             manager.Win();
         }
+
+        if (other.CompareTag("Enemy"))
+            TakeDamage(50);
     }
 
     private void OnCollisionEnter(Collision other)
