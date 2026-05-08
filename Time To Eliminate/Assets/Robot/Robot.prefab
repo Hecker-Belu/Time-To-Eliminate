@@ -173,7 +173,7 @@ MonoBehaviour:
   StepDistance: 1
   StepLength: 2.29
   StepHeight: 1
-  FootOffset: {x: 0, y: -1, z: 0}
+  FootOffset: {x: -0.5, y: -1, z: 0}
 --- !u!1 &1616460974646838417
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
   StepDistance: 1
   StepLength: 2.29
   StepHeight: 1
-  FootOffset: {x: 0, y: -1, z: 0}
+  FootOffset: {x: -0.5, y: -1, z: 0}
 --- !u!1 &5910619950070457436
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +548,7 @@ MonoBehaviour:
   StepDistance: 1
   StepLength: 2.29
   StepHeight: 1
-  FootOffset: {x: 0, y: -1, z: 0}
+  FootOffset: {x: 0.5, y: -1, z: 0}
 --- !u!1 &7025549596875664841
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   turnSpeed: 6
-  maxChaseDistance: 50
+  maxChaseDistance: 20
 --- !u!95 &525481493658394481
 Animator:
   serializedVersion: 7
@@ -5590,7 +5590,7 @@ MonoBehaviour:
   StepDistance: 1
   StepLength: 2.29
   StepHeight: 1
-  FootOffset: {x: 0, y: -1, z: 0}
+  FootOffset: {x: 0.5, y: -1, z: 0}
 --- !u!1 &7805587081188632912
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
         if (timer != null)
         {
             time -= Time.deltaTime;
-            timer.SetText(time.ToString().Substring(0, 4) + "s");
+            timer.SetText(time.ToShortString(3) + "s");
             print(time.ToString());
         }
         if (time <= 0.0f)

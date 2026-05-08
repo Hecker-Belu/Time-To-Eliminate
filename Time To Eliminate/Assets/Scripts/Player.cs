@@ -309,10 +309,6 @@ public class Player : MonoBehaviour
         //Iterate through every collision in a physics update
         for (int i = 0; i < other.contactCount; i++)
         {
-            if (other.contacts[i].otherCollider.CompareTag("InstantDeath"))
-            {
-                manager.Lose();
-            }
             Vector3 normal = other.contacts[i].normal;
             //FLOOR
             if (IsFloor(normal))
@@ -357,6 +353,31 @@ public class Player : MonoBehaviour
     private void StopGrounded()
     {
         grounded = false;
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("InstantDeath"))
+        {
+            manager.Lose();
+        }
+        if (other.CompareTag("Win"))
+        {
+            manager.Win();
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag("InstantDeath"))
+        {
+            manager.Lose();
+        }
+        if (other.collider.CompareTag("Win"))
+        {
+            manager.Win();
+        }
     }
 
 }
