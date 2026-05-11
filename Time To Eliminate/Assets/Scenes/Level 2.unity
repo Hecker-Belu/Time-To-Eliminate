@@ -4413,6 +4413,10 @@ PrefabInstance:
       value: level_one
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 085ef14d695fd2a438fa0e3b1ea5f28b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 085ef14d695fd2a438fa0e3b1ea5f28b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
