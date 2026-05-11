@@ -82,12 +82,13 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneManager.LoadScene("MainMenu");
+      
     }
 
     public void next()
     {
         print("next level");
-        SceneManager.LoadScene(nextScene);
+        SceneManager.LoadScene("Level 3");
     }
 
  
