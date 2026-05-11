@@ -31,10 +31,6 @@ public class GameManager : MonoBehaviour
             time -= Time.deltaTime;
             timer.SetText(time.ToShortString(3) + "s");
         }
-        else
-        {
-            timer = GameObject.Find("Timer").GetComponent<TextMeshProUGUI>();
-        }
 
         if (time <= 0.0f)
         {

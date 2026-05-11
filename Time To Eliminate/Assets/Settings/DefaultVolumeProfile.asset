@@ -103,7 +103,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.194
+    m_Value: 0.52
   clamp:
     m_OverrideState: 1
     m_Value: 0.05
@@ -170,7 +170,7 @@ MonoBehaviour:
     m_Value: {r: 0.9858491, g: 1, b: 0.997926, a: 1}
   hueShift:
     m_OverrideState: 1
-    m_Value: 27
+    m_Value: -4
   saturation:
     m_OverrideState: 1
     m_Value: 100
@@ -360,7 +360,7 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.31
+    m_Value: 0.24
   intensity:
     m_OverrideState: 1
     m_Value: 2

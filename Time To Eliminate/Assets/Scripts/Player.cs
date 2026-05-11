@@ -379,13 +379,8 @@ public class Player : MonoBehaviour
         {
             manager.Lose();
         }
-        if (other.CompareTag("Win"))
-        {
-            manager.Win();
-        }
-
         if (other.CompareTag("Enemy"))
-            TakeDamage(50);
+            TakeDamage(25);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -393,10 +388,6 @@ public class Player : MonoBehaviour
         if (other.collider.CompareTag("InstantDeath"))
         {
             manager.Lose();
-        }
-        if (other.collider.CompareTag("Win"))
-        {
-            manager.Win();
         }
     }
 
