@@ -20269,6 +20269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: arms
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: adcb210b07749bf4bba2c20a26cfbf5e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1010578006911348134, guid: adcb210b07749bf4bba2c20a26cfbf5e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -50.58326
