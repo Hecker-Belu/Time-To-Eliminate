@@ -5,10 +5,13 @@ public class Damagable : MonoBehaviour
     public int Health;
     public ParticleSystem deathEffect;
     public GameObject self;
+    public GameManager gameManager;
+
 
     public void Hit(int n)
     {
         Health -= n;
+        deathEffect.Play();
         if (Health <= 0)
         {
             Kill();
@@ -17,7 +20,9 @@ public class Damagable : MonoBehaviour
 
     public void Kill()
     {
-        deathEffect.Play();
+        print("i am!");
+        gameManager.time = 10.0f;
+        
         Destroy(self);
     }
 }

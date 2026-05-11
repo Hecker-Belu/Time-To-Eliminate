@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_AgentTypeID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3470595537995740847, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 391467505}
     - target: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_Name
       value: Robot (8)
@@ -212,9 +216,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1176331002}
-    - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1176331001}
   m_SourcePrefab: {fileID: 100100000, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
 --- !u!1 &169586941 stripped
@@ -243,20 +244,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &169586943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169586941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be66aada3bcc3584999727fcde93f3e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
 --- !u!1 &327475182
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +299,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.69503003
       objectReference: {fileID: 0}
+    - target: {fileID: 3470595537995740847, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 391467505}
     - target: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_Name
       value: Robot (3)
@@ -384,9 +375,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1612308633}
     - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1612308632}
@@ -597,13 +585,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 1963423083}
-  nextScene: 
+  nextScene: Level 3
   nextText: {fileID: 0}
-  levelName:
-  - Level 1
-  - Level 2
-  - Level 3
-  levelIndex: 4
+  time: 10
 --- !u!4 &391467506
 Transform:
   m_ObjectHideFlags: 0
@@ -645,20 +629,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &413804417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413804415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be66aada3bcc3584999727fcde93f3e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
 --- !u!4 &562876029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4853167229386725836, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
@@ -820,6 +790,10 @@ PrefabInstance:
       propertyPath: m_AgentTypeID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3470595537995740847, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 391467505}
     - target: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_Name
       value: Robot (1)
@@ -892,9 +866,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1665268781}
     - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1665268780}
@@ -1059,6 +1030,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.47600007
       objectReference: {fileID: 0}
+    - target: {fileID: 3470595537995740847, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 391467505}
     - target: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_Name
       value: Robot (6)
@@ -1131,9 +1106,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1629763132}
     - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1629763131}
@@ -1264,6 +1236,10 @@ PrefabInstance:
       propertyPath: m_AgentTypeID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3470595537995740847, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 391467505}
     - target: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_Name
       value: Robot (2)
@@ -1338,9 +1314,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1322181357}
-    - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1322181356}
   m_SourcePrefab: {fileID: 100100000, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
 --- !u!1001 &963162980
@@ -1363,6 +1336,10 @@ PrefabInstance:
       propertyPath: m_AgentTypeID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3470595537995740847, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 391467505}
     - target: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_Name
       value: Robot (9)
@@ -1437,9 +1414,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2042246598}
-    - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2042246597}
   m_SourcePrefab: {fileID: 100100000, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
 --- !u!1001 &978029102
@@ -1462,6 +1436,10 @@ PrefabInstance:
       propertyPath: m_AgentTypeID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3470595537995740847, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 391467505}
     - target: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_Name
       value: Robot (5)
@@ -1534,9 +1512,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1761480283}
     - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1761480282}
@@ -1867,20 +1842,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1176331002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1176331000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be66aada3bcc3584999727fcde93f3e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
 --- !u!1 &1223687473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,6 +2044,10 @@ PrefabInstance:
       propertyPath: m_AgentTypeID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3470595537995740847, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 391467505}
     - target: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_Name
       value: Robot (4)
@@ -2155,9 +2120,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 413804417}
     - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 413804416}
@@ -2325,20 +2287,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1322181357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1322181355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be66aada3bcc3584999727fcde93f3e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
 --- !u!1 &1342588910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,6 +2488,10 @@ PrefabInstance:
       propertyPath: m_AgentTypeID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3470595537995740847, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 391467505}
     - target: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_Name
       value: Robot (10)
@@ -2612,9 +2564,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1697345475}
     - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1697345474}
@@ -3265,6 +3214,10 @@ PrefabInstance:
       propertyPath: m_AgentTypeID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3470595537995740847, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 391467505}
     - target: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_Name
       value: Robot (7)
@@ -3339,9 +3292,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 169586943}
-    - targetCorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 169586942}
   m_SourcePrefab: {fileID: 100100000, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
 --- !u!1 &1612308631 stripped
@@ -3370,20 +3320,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1612308633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612308631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be66aada3bcc3584999727fcde93f3e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
 --- !u!1 &1629763130 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
@@ -3410,20 +3346,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1629763132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1629763130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be66aada3bcc3584999727fcde93f3e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
 --- !u!1 &1665268779 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
@@ -3450,20 +3372,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1665268781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665268779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be66aada3bcc3584999727fcde93f3e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
 --- !u!1 &1697345473 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
@@ -3490,20 +3398,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1697345475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1697345473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be66aada3bcc3584999727fcde93f3e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
 --- !u!1001 &1703249288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3617,20 +3511,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1761480283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761480281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be66aada3bcc3584999727fcde93f3e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
 --- !u!1 &1894201320
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,7 +3719,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1894201320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f77c1ec02377e74c9f23d8987ef0dc4, type: 3}
+  m_Script: {fileID: 11500000, guid: a00fd0c94b777be408b85ccd26d84f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 391467505}
@@ -4201,20 +4081,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2042246598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042246596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be66aada3bcc3584999727fcde93f3e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
 --- !u!1001 &2079860757
 PrefabInstance:
   m_ObjectHideFlags: 0

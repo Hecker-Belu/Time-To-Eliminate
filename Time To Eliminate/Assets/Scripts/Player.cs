@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
     {
         UpdateState(State.Slash);
 
-        if (Physics.Raycast(playerCam.position, playerCam.forward, out RaycastHit hit, 50f))
+        if (Physics.Raycast(playerCam.position, playerCam.forward, out RaycastHit hit, 15f))
         {
             if (hit.collider.CompareTag("Enemy") && hit.collider.TryGetComponent<Damagable>(out Damagable dmg))
             {

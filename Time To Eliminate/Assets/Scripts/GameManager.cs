@@ -10,25 +10,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timer;
     public string nextScene;
     public GameObject nextText;
-    private float time = 60.0f;
+    public float time = 10.0f;
     private bool started = false;
-    private static bool gameManagerCreated = false;
-    public string[] levelName = {"MainMenu", "Level 1", "Level 2", "Level 3", };
-    public int levelIndex = 0;
-
-
-
-
-    private void Awake()
-    {
-        if (!gameManagerCreated)
-        {
-            gameManagerCreated = true;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-            Destroy(gameObject);
-    }
 
     public void StartGame()
     {
@@ -38,10 +21,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (started)
-        {
-            UpdateGame();
-        }
+        UpdateGame();
     }
 
     public void UpdateGame()
@@ -50,7 +30,6 @@ public class GameManager : MonoBehaviour
         {
             time -= Time.deltaTime;
             timer.SetText(time.ToShortString(3) + "s");
-            print(time.ToString());
         }
         else
         {
@@ -71,7 +50,7 @@ public class GameManager : MonoBehaviour
             started = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            SceneManager.LoadScene("Level 2");
+            SceneManager.LoadScene(nextScene);
         }
     }
 
@@ -88,7 +67,7 @@ public class GameManager : MonoBehaviour
     public void next()
     {
         print("next level");
-        SceneManager.LoadScene("Level 3");
+        SceneManager.LoadScene(nextScene);
     }
 
  

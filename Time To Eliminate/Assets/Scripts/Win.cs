@@ -12,7 +12,7 @@ public class Win : MonoBehaviour
     {
         if(other.tag == "Player")//f (other.CompareTag("Player"))
         {
-            gameManager.Win();
+            gameManager.next();
         }
     }
    
