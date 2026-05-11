@@ -147,9 +147,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050ea63e4b852014fa3c41d3a2d2af61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
+  timer: {fileID: 2098398281}
   nextScene: 
   nextText: {fileID: 0}
+  levelName:
+  - MainMenu
+  - Level 1
+  - Level 2
+  - Level 3
+  levelIndex: 0
 --- !u!4 &6498019
 Transform:
   m_ObjectHideFlags: 0

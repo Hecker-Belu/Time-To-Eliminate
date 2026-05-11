@@ -416,8 +416,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 141
-  m_fontSizeBase: 141
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -541,7 +541,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1432836013}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
@@ -766,6 +766,12 @@ MonoBehaviour:
   timer: {fileID: 0}
   nextScene: level 1
   nextText: {fileID: 717648920}
+  levelName:
+  - Level 1
+  - WinTemp
+  - Level 2
+  - Level 3
+  levelIndex: 4
 --- !u!4 &1432836014
 Transform:
   m_ObjectHideFlags: 0
