@@ -3811,7 +3811,7 @@ PrefabInstance:
       objectReference: {fileID: 391467505}
     - target: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_Name
-      value: Robot (10)
+      value: Billy
       objectReference: {fileID: 0}
     - target: {fileID: 7025549596875664841, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_TagString
@@ -3835,7 +3835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8458602813001491789, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.1799994
+      value: -2.525
       objectReference: {fileID: 0}
     - target: {fileID: 8458602813001491789, guid: 573eefa7eeca7974d848afb14a4be0ae, type: 3}
       propertyPath: m_LocalPosition.z
