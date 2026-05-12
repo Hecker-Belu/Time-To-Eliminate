@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class Damagable : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class Damagable : MonoBehaviour
     public void Hit(int n)
     {
         Health -= n;
-        deathEffect.Play();
+        Task task = new Task(() => ParticleRun());
+        task.Start();
         if (Health <= 0)
         {
             Kill();
@@ -22,7 +24,20 @@ public class Damagable : MonoBehaviour
     {
         print("i am!");
         gameManager.time = 10.0f;
-        
+        Task task = new Task(() => ParticleRun());
+        task.Start();
         Destroy(self);
+    }
+
+    async Task ParticleRun()
+    {
+        // 1. Spawn the VFX as a separate object
+        ParticleSystem fx = Instantiate(deathEffect, transform.position, transform.rotation);
+
+        // 2. Play it
+        fx.Play();
+
+        // 3. Destroy the VFX after it finishes
+        Destroy(fx.gameObject, fx.main.duration);
     }
 }
