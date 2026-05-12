@@ -325,6 +325,14 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 329289184}
+    - target: {fileID: 3931039915162999075, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
+      propertyPath: slideForce
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931039915162999075, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
+      propertyPath: slideCounterMovement
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4169837144701379321, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
       propertyPath: m_Name
       value: Player
