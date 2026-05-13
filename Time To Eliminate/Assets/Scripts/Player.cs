@@ -2,7 +2,9 @@
 
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -64,8 +66,15 @@ public class Player : MonoBehaviour
     private float maxHealth = 100f;
     public TMP_Text healthText;
 
+    //settings
+    public GameObject settings;
+    public Button settingsClose;
+    public GameObject settingsPanel;
+    public bool isSetting = false;
+
     void Awake()
     {
+        
         rb = GetComponent<Rigidbody>();
     }
 
@@ -74,8 +83,29 @@ public class Player : MonoBehaviour
         playerScale = transform.localScale;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        settings = GameObject.Find("Settings");
+        settingsClose = settings.GetComponent<Settings>().closeButton.GetComponent<Button>();
+        settingsPanel = settings.GetComponent<Settings>().panel;
+        sensitivity = settings.GetComponent<Settings>().sensitivity;
     }
 
+    public void UpdateSettings()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        isSetting = false;
+        sensitivity = settings.GetComponent<Settings>().sensitivity;
+        settingsClose.onClick.RemoveListener(UpdateSettings);
+    }
+
+    public void ShowSettings()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        isSetting = true;
+        settingsPanel.SetActive(true);
+        settingsClose.onClick.AddListener(UpdateSettings);
+    }
 
     private void FixedUpdate()
     {
@@ -93,6 +123,10 @@ public class Player : MonoBehaviour
     /// </summary>
     private void MyInput()
     {
+        if (isSetting)
+        {
+            return;
+        }
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
         jumping = Input.GetButton("Jump");
@@ -103,6 +137,11 @@ public class Player : MonoBehaviour
             UpdateState(State.Walk);
         } else if (currentState != State.Idle) {
             UpdateState(State.Idle);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ShowSettings();
         }
 
         //Crouching
@@ -152,6 +191,7 @@ public class Player : MonoBehaviour
 
     private void Movement()
     {
+        
         //Extra gravity
         rb.AddForce(Vector3.down * Time.deltaTime * 10);
 
@@ -228,6 +268,10 @@ public class Player : MonoBehaviour
     private float desiredX;
     private void Look()
     {
+        if (isSetting)
+        {
+            return;
+        }
         float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
 
