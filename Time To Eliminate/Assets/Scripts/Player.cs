@@ -270,10 +270,6 @@ public class Player : MonoBehaviour
     private float desiredX;
     private void Look()
     {
-        if (isSetting)
-        {
-            return;
-        }
         float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
 

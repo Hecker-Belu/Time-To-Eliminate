@@ -63,9 +63,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 77003765368892820}
   - {fileID: 2846858556087517253}
   - {fileID: 5917248776717266709}
+  - {fileID: 77003765368892820}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &6487227119680819
@@ -130,6 +130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8772e1aa53122374b82c8fddf8a18445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
   playerCam: {fileID: 0}
   orientation: {fileID: 5917248776717266709}
   animator: {fileID: 0}
@@ -144,6 +148,11 @@ MonoBehaviour:
   slideForce: 400
   slideCounterMovement: 0.2
   jumpForce: 550
+  healthText: {fileID: 0}
+  settings: {fileID: 0}
+  settingsClose: {fileID: 0}
+  settingsPanel: {fileID: 0}
+  isSetting: 0
 --- !u!1 &7059555318668525051
 GameObject:
   m_ObjectHideFlags: 0

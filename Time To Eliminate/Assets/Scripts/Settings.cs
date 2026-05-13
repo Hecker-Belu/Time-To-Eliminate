@@ -8,14 +8,21 @@ public class Settings : MonoBehaviour
 
     public float sensitivity = 0.02f;
     public bool vsync = false;
-    public static bool settingsCreated = false;
 
+    public static bool isSettings = false;
     public GameObject closeButton;
     public GameObject panel;
 
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (!isSettings)
+        {
+            isSettings = true;
+            DontDestroyOnLoad(gameObject);
+        } else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()

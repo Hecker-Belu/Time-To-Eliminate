@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI timer;
     public string nextScene;
-    public GameObject nextText;
     public float time = 10.0f;
     public bool paused = false;
 
