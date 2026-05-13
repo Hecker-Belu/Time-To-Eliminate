@@ -46,4 +46,6 @@ public class Settings : MonoBehaviour
         // Apply vsync
         QualitySettings.vSyncCount = vsync ? 1 : 0;
     }
+
+    public void QuitGame() => Application.Quit();
 }

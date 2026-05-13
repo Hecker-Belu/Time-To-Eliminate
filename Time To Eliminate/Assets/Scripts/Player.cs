@@ -94,6 +94,7 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         isSetting = false;
+        manager.paused = false;
         sensitivity = settings.GetComponent<Settings>().sensitivity;
         settingsClose.onClick.RemoveListener(UpdateSettings);
     }
@@ -103,6 +104,7 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         isSetting = true;
+        manager.paused = true;
         settingsPanel.SetActive(true);
         settingsClose.onClick.AddListener(UpdateSettings);
     }

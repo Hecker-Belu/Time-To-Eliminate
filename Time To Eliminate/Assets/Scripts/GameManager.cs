@@ -11,12 +11,11 @@ public class GameManager : MonoBehaviour
     public string nextScene;
     public GameObject nextText;
     public float time = 10.0f;
-    private bool started = false;
+    public bool paused = false;
 
     public void StartGame()
     {
         SceneManager.LoadScene("Level 1");
-        started = true;
     }
 
     public void Update()
@@ -26,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateGame()
     {
-        if (timer != null)
+        if (timer != null && !paused)
         {
             time -= Time.deltaTime;
             timer.SetText(time.ToShortString(3) + "s");
@@ -40,20 +39,14 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        print(started);
-        if (started)
-        {
-            started = false;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            SceneManager.LoadScene(nextScene);
-        }
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene(nextScene);
     }
 
     public void Lose()
     {
         print("You lose");
-        started = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneManager.LoadScene("MainMenu");
