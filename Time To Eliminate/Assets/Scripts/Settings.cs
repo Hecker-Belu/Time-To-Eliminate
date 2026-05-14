@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,13 +6,25 @@ public class Settings : MonoBehaviour
 {
     public Slider sensitivitySlider;
     public Toggle vsyncToggle;
+    public Slider fovSlider;
+    public Dropdown resolutionDropdown;
 
     public float sensitivity = 0.02f;
     public bool vsync = false;
+    public float fov = 90;
+    public Vector2 resolution = new Vector2(1920, 1080);
 
     public static bool isSettings = false;
     public GameObject closeButton;
     public GameObject panel;
+
+    // List of supported resolutions
+    private readonly Vector2[] availableResolutions =
+    {
+        new Vector2(1920, 1080),
+        new Vector2(1280, 720),
+        new Vector2(720, 480)
+    };
 
     void Awake()
     {
@@ -19,7 +32,8 @@ public class Settings : MonoBehaviour
         {
             isSettings = true;
             DontDestroyOnLoad(gameObject);
-        } else
+        }
+        else
         {
             Destroy(gameObject);
         }
@@ -27,9 +41,27 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
+
+        // Load resolution
+        resolution = new Vector2(PlayerPrefs.GetInt("ResX", 1920), PlayerPrefs.GetInt("ResY", 1080));
+
+        // Set dropdown index
+        for (int i = 0; i < availableResolutions.Length; i++)
+        {
+            if (availableResolutions[i] == resolution)
+            {
+                resolutionDropdown.value = i;
+                break;
+            }
+        }
+
         // Load sensitivity
         sensitivity = PlayerPrefs.GetFloat("sens", 0.02f);
         sensitivitySlider.value = sensitivity;
+
+        // Load fov
+        fov = PlayerPrefs.GetFloat("fov", 90f);
+        fovSlider.value = fov;
 
         // Load vsync
         vsync = PlayerPrefs.GetInt("vsync", 1) == 1;
@@ -42,10 +74,20 @@ public class Settings : MonoBehaviour
     public void UpdateSettings()
     {
         // Read UI values
+        fov = fovSlider.value;
         sensitivity = sensitivitySlider.value;
         vsync = vsyncToggle.isOn;
 
-        // Save
+        // Apply resolution
+        Vector2 selectedRes = availableResolutions[resolutionDropdown.value];
+        Screen.SetResolution((int)selectedRes.x, (int)selectedRes.y, FullScreenMode.FullScreenWindow);
+
+        // Save resolution
+        PlayerPrefs.SetInt("ResX", (int)selectedRes.x);
+        PlayerPrefs.SetInt("ResY", (int)selectedRes.y);
+
+        // Save other settings
+        PlayerPrefs.SetFloat("fov", fov);
         PlayerPrefs.SetFloat("sens", sensitivity);
         PlayerPrefs.SetInt("vsync", vsync ? 1 : 0);
         PlayerPrefs.Save();

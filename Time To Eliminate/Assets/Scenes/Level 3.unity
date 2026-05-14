@@ -7729,7 +7729,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 374933300}
   nextScene: WinTemp
-  nextText: {fileID: 0}
   time: 10
   paused: 0
 --- !u!4 &747064867
@@ -14959,7 +14958,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccde016a7786d5d469a85e1ea8b7c3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 0}
   player: {fileID: 492817084}
+  cam: {fileID: 468590987}
 --- !u!4 &1336268448
 Transform:
   m_ObjectHideFlags: 0
