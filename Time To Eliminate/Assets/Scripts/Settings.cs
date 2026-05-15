@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ public class Settings : MonoBehaviour
     public Slider sensitivitySlider;
     public Toggle vsyncToggle;
     public Slider fovSlider;
-    public Dropdown resolutionDropdown;
+    public TMP_Dropdown resolutionDropdown;
 
     public float sensitivity = 0.02f;
     public bool vsync = false;
@@ -80,7 +81,7 @@ public class Settings : MonoBehaviour
 
         // Apply resolution
         Vector2 selectedRes = availableResolutions[resolutionDropdown.value];
-        Screen.SetResolution((int)selectedRes.x, (int)selectedRes.y, FullScreenMode.FullScreenWindow);
+        Screen.SetResolution((int)selectedRes.x, (int)selectedRes.y, FullScreenMode.ExclusiveFullScreen);
 
         // Save resolution
         PlayerPrefs.SetInt("ResX", (int)selectedRes.x);

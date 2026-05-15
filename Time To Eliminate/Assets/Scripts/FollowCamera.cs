@@ -7,7 +7,7 @@ public class FollowCamera : MonoBehaviour
     public Transform player;
     public Camera cam;
 
-    private void Awake()
+    private void Start()
     {
         settings = GameObject.Find("Settings").GetComponent<Settings>();
     }
