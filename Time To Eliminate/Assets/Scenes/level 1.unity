@@ -287,6 +287,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100860327}
     - target: {fileID: 3931039915162999075, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
+      propertyPath: cooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3931039915162999075, guid: 98760a33d7f19e641994cdb2339e9859, type: 3}
       propertyPath: jumpForce
       value: 550
       objectReference: {fileID: 0}

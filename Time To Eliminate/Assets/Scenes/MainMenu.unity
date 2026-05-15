@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30dd07a5b3a2a3a4cb7af09d547d640b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 0}
+  mainMenuCloseButton: {fileID: 2010985848}
 --- !u!4 &132599599
 Transform:
   m_ObjectHideFlags: 0
@@ -4857,19 +4859,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2010985849}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1813003285}
-        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: QuitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2010985849
 MonoBehaviour:
   m_ObjectHideFlags: 0

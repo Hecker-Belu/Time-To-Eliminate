@@ -1,4 +1,4 @@
-// Some stupid rigidbody based movement by Dani
+﻿// Some stupid rigidbody based movement by Dani
 
 using System;
 using TMPro;
@@ -72,6 +72,13 @@ public class Player : MonoBehaviour
     public GameObject settingsPanel;
     public bool isSetting = false;
 
+    // Attacking
+    // Attacking
+    public bool attackDebounce = false;
+
+    public float cooldown = 1f;          // cooldown after 2 attacks
+    private float cooldownTimer = 0f;
+
     void Awake()
     {
         
@@ -118,6 +125,16 @@ public class Player : MonoBehaviour
     {
         MyInput();
         Look();
+
+        if (attackDebounce)
+        {
+            cooldownTimer -= Time.deltaTime;
+            if (cooldownTimer < 0)
+            {
+                cooldownTimer = 0;
+                attackDebounce = false;
+            }
+        }
     }
 
     /// <summary>
@@ -154,13 +171,19 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
             Attack();
         print("Attacked");
+
     }
 
     private void Attack()
     {
+        if (attackDebounce)
+            return;
+        attackDebounce = true;
+        cooldownTimer = cooldown;
         UpdateState(State.Slash);
 
-        if (Physics.Raycast(playerCam.position, playerCam.forward, out RaycastHit hit, 15f))
+        // Raycast hit detection
+        if (Physics.Raycast(playerCam.position, playerCam.forward, out RaycastHit hit, 5f + rb.linearVelocity.magnitude))
         {
             if (hit.collider.CompareTag("Enemy") && hit.collider.TryGetComponent<Damagable>(out Damagable dmg))
             {
@@ -170,6 +193,7 @@ public class Player : MonoBehaviour
 
         Debug.Log("Attacked");
     }
+
 
 
     private void StartCrouch()

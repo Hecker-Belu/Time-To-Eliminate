@@ -97,5 +97,9 @@ public class Settings : MonoBehaviour
         QualitySettings.vSyncCount = vsync ? 1 : 0;
     }
 
-    public void QuitGame() => Application.Quit();
+    public void QuitGame()
+    {
+        print("quit");
+        Application.Quit();
+    }
 }
