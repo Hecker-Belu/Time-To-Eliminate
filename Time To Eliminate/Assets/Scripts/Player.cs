@@ -73,11 +73,14 @@ public class Player : MonoBehaviour
     public bool isSetting = false;
 
     // Attacking
-    // Attacking
     public bool attackDebounce = false;
-
     public float cooldown = 1f;          // cooldown after 2 attacks
     private float cooldownTimer = 0f;
+
+    // SFX
+    public AudioSource footstepSfx;
+    public AudioSource slidingSfx;
+    private float timerFootstep = 0.2f;
 
     void Awake()
     {
@@ -133,6 +136,18 @@ public class Player : MonoBehaviour
             {
                 cooldownTimer = 0;
                 attackDebounce = false;
+            }
+        }
+
+        if (timerFootstep > 0)
+        {
+            timerFootstep -= Time.deltaTime;
+        } else
+        {
+            if (currentState == State.Walk && grounded)
+            {
+                footstepSfx.Play();
+                timerFootstep = 0.2f;
             }
         }
     }
@@ -198,19 +213,21 @@ public class Player : MonoBehaviour
 
     private void StartCrouch()
     {
+        slidingSfx.Play();
         transform.localScale = crouchScale;
         transform.position = new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z);
         if (rb.linearVelocity.magnitude > 0.5f)
         {
             if (grounded)
             {
-                rb.AddForce(orientation.transform.forward * slideForce);
+                rb.AddForce(orientation.transform.forward * slideForce, ForceMode.Acceleration);
             }
         }
     }
 
     private void StopCrouch()
     {
+        slidingSfx.Stop();
         transform.localScale = playerScale;
         transform.position = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z);
     }

@@ -290,8 +290,8 @@ MonoBehaviour:
     m_Bits: 256
   Body: {fileID: 42201645575696456}
   OtherFoot: {fileID: 8653325498133905311}
-  Speed: 1
-  StepDistance: 0.2
+  Speed: 10
+  StepDistance: 0.14
   StepLength: 0.1
   StepHeight: 1
   FootOffset: {x: 0, y: 0, z: 0}
@@ -344,8 +344,8 @@ MonoBehaviour:
     m_Bits: 256
   Body: {fileID: 42201645575696456}
   OtherFoot: {fileID: 294512961664949094}
-  Speed: 1
-  StepDistance: 0.2
+  Speed: 10
+  StepDistance: 0.14
   StepLength: 0.1
   StepHeight: 1
   FootOffset: {x: 0, y: 0, z: 0}
@@ -785,8 +785,8 @@ MonoBehaviour:
     m_Bits: 256
   Body: {fileID: 42201645575696456}
   OtherFoot: {fileID: 5527861398438500604}
-  Speed: 1
-  StepDistance: 0.2
+  Speed: 10
+  StepDistance: 0.14
   StepLength: 0.1
   StepHeight: 1
   FootOffset: {x: 0, y: 0, z: 0}
@@ -839,8 +839,8 @@ MonoBehaviour:
     m_Bits: 256
   Body: {fileID: 42201645575696456}
   OtherFoot: {fileID: 2562635859375466838}
-  Speed: 1
-  StepDistance: 0.2
+  Speed: 10
+  StepDistance: 0.14
   StepLength: 0.1
   StepHeight: 1
   FootOffset: {x: 0, y: 0, z: 0}
@@ -986,7 +986,11 @@ PrefabInstance:
       value: Robot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5844164832760840738, guid: 38231de797a5fb44685f894503c31452, type: 3}
+    - {fileID: 3556902281417704786, guid: 38231de797a5fb44685f894503c31452, type: 3}
+    - {fileID: -6945243507863904457, guid: 38231de797a5fb44685f894503c31452, type: 3}
+    - {fileID: 5850127675297657505, guid: 38231de797a5fb44685f894503c31452, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38231de797a5fb44685f894503c31452, type: 3}
