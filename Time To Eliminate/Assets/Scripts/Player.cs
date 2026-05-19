@@ -63,7 +63,6 @@ public class Player : MonoBehaviour
 
     // health
     private float health = 100f;
-    private float maxHealth = 100f;
     public TMP_Text healthText;
 
     //settings
@@ -73,11 +72,15 @@ public class Player : MonoBehaviour
     public bool isSetting = false;
 
     // Attacking
-    // Attacking
     public bool attackDebounce = false;
-
     public float cooldown = 1f;          // cooldown after 2 attacks
     private float cooldownTimer = 0f;
+
+    // SFX
+    public AudioSource footstepSfx;
+    public AudioSource slidingSfx;
+    public AudioSource jumpSfx;
+    private float timerFootstep = 0.2f;
 
     void Awake()
     {
@@ -135,6 +138,18 @@ public class Player : MonoBehaviour
                 attackDebounce = false;
             }
         }
+
+        if (timerFootstep > 0)
+        {
+            timerFootstep -= Time.deltaTime;
+        } else
+        {
+            if (currentState == State.Walk && grounded)
+            {
+                footstepSfx.Play();
+                timerFootstep = 0.2f;
+            }
+        }
     }
 
     /// <summary>
@@ -183,7 +198,7 @@ public class Player : MonoBehaviour
         UpdateState(State.Slash);
 
         // Raycast hit detection
-        if (Physics.Raycast(playerCam.position, playerCam.forward, out RaycastHit hit, 5f + rb.linearVelocity.magnitude))
+        if (Physics.Raycast(playerCam.position, playerCam.forward, out RaycastHit hit, 10f + (10f * Mathf.Abs(rb.linearVelocity.magnitude))))
         {
             if (hit.collider.CompareTag("Enemy") && hit.collider.TryGetComponent<Damagable>(out Damagable dmg))
             {
@@ -198,19 +213,21 @@ public class Player : MonoBehaviour
 
     private void StartCrouch()
     {
+        slidingSfx.Play();
         transform.localScale = crouchScale;
         transform.position = new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z);
         if (rb.linearVelocity.magnitude > 0.5f)
         {
             if (grounded)
             {
-                rb.AddForce(orientation.transform.forward * slideForce);
+                rb.AddForce(orientation.transform.forward * slideForce, ForceMode.Acceleration);
             }
         }
     }
 
     private void StopCrouch()
     {
+        slidingSfx.Stop();
         transform.localScale = playerScale;
         transform.position = new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z);
     }
@@ -269,6 +286,7 @@ public class Player : MonoBehaviour
     {
         if (grounded && readyToJump)
         {
+            jumpSfx.Play();
             readyToJump = false;
 
             //Add jump forces

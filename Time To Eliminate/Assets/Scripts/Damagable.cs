@@ -1,10 +1,16 @@
-using UnityEngine;
-using System.Threading.Tasks;
 using System.Collections;
+using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.Events;
 
 public class Damagable : MonoBehaviour
 {
     public int Health;
+    public bool AddsTimeOnDeath = true;
+    public bool CallbackOnDeathEnabled = false;
+    public bool HasHealthBar = false;
+    public HealthBar healthBar;
+    public UnityEvent CallbackOnDeath;
     public GameObject deathEffect;
     public GameObject self;
     public GameManager gameManager;
@@ -13,6 +19,10 @@ public class Damagable : MonoBehaviour
     public void Hit(int n)
     {
         Health -= n;
+        if (HasHealthBar)
+        {
+            healthBar.SetHealth(Health);
+        }
         StartCoroutine(ParticleRun());
         if (Health <= 0)
         {
@@ -22,8 +32,15 @@ public class Damagable : MonoBehaviour
 
     public void Kill()
     {
+        if (CallbackOnDeathEnabled)
+        {
+            CallbackOnDeath.Invoke();
+        }
         print("i am!");
-        gameManager.time = 10.0f;
+        if (AddsTimeOnDeath)
+        {
+            gameManager.time = 10.0f;
+        }
         Destroy(self);
     }
 

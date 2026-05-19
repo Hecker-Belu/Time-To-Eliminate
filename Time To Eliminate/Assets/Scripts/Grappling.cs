@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Grappling : MonoBehaviour
 {
+    public AudioSource grappleSfx;
 
     private LineRenderer lr;
     private Vector3 grapplePoint;
@@ -38,10 +39,11 @@ public class Grappling : MonoBehaviour
     /// </summary>
     void StartGrapple()
     {
+        
         RaycastHit hit;
         if (Physics.Raycast(camera.position, camera.forward, out hit, maxDistance, whatIsGrappleable))
         {
-            
+            grappleSfx.Play();
             grapplePoint = hit.point;
             joint = player.gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
@@ -79,6 +81,7 @@ public class Grappling : MonoBehaviour
     /// </summary>
     void StopGrapple()
     {
+        grappleSfx.Stop();
         lr.positionCount = 0;
         Destroy(joint);
     }
