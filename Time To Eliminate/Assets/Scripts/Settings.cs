@@ -2,6 +2,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class Settings : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Settings : MonoBehaviour
     public Toggle vsyncToggle;
     public Slider fovSlider;
     public TMP_Dropdown resolutionDropdown;
+    public Slider volumeSlider;
+
+    public UnityEngine.Audio.AudioMixer audioMixer;
 
     public float sensitivity = 0.02f;
     public bool vsync = false;
@@ -70,6 +74,20 @@ public class Settings : MonoBehaviour
 
         // Apply vsync
         QualitySettings.vSyncCount = vsync ? 1 : 0;
+
+        // Load volume (0–100)
+        float savedVolume = PlayerPrefs.GetFloat("volume", 75f);
+        volumeSlider.value = savedVolume;
+
+        // Convert to 0–1
+        float linear = savedVolume / 100f;
+
+        // Prevent log10(0)
+        if (linear <= 0.0001f) linear = 0.0001f;
+
+        // Apply to mixer
+        audioMixer.SetFloat("Master", Mathf.Log10(linear) * 20f);
+
     }
 
     public void UpdateSettings()
@@ -82,6 +100,21 @@ public class Settings : MonoBehaviour
         // Apply resolution
         Vector2 selectedRes = availableResolutions[resolutionDropdown.value];
         Screen.SetResolution((int)selectedRes.x, (int)selectedRes.y, FullScreenMode.ExclusiveFullScreen);
+
+        // Read slider (0–100)
+        float volume = volumeSlider.value;
+
+        // Convert to 0–1
+        float linear = volume / 100f;
+
+        // Prevent log10(0)
+        if (linear <= 0.0001f) linear = 0.0001f;
+
+        // Apply to mixer
+        audioMixer.SetFloat("Master", Mathf.Log10(linear) * 20f);
+
+        // Save
+        PlayerPrefs.SetFloat("volume", volume);
 
         // Save resolution
         PlayerPrefs.SetInt("ResX", (int)selectedRes.x);

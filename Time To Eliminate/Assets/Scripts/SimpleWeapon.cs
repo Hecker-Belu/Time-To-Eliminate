@@ -6,6 +6,7 @@ public class SimpleWeapon : MonoBehaviour, IWeapon
     public float attackTime;
     public GameObject projectilePrefab;
     public float radius;
+    private GameManager gameManager;
 
     float timer = 0f;
 
@@ -17,8 +18,17 @@ public class SimpleWeapon : MonoBehaviour, IWeapon
         this.radius = radius;
     }
 
+    public void Awake()
+    {
+        GameObject.Find("GameManager").TryGetComponent<GameManager>(out gameManager);
+    }
+
     void Update()
     {
+        if (gameManager.paused)
+        {
+            return;
+        }
         timer += Time.deltaTime;
 
         if (timer >= attackTime)
