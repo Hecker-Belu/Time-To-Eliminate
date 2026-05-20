@@ -1,5 +1,3 @@
-using System.Threading;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class RandomVoicelines : MonoBehaviour
