@@ -8,6 +8,9 @@ public class Rocket : MonoBehaviour
     public float speed = 15f;
     public float lifetime = 10f;
 
+    // How fast the rocket turns (degrees per second)
+    public float turnSpeed = 90f;
+
     void Start()
     {
         target = GameObject.Find(targetName);
@@ -16,16 +19,23 @@ public class Rocket : MonoBehaviour
 
     void Update()
     {
+        // Move forward
         transform.position += transform.forward * speed * Time.deltaTime;
-        transform.LookAt(target.transform.position);
+
+        // Smooth rotation
+        Vector3 dir = (target.transform.position - transform.position).normalized;
+        Quaternion targetRot = Quaternion.LookRotation(dir);
+
+        transform.rotation = Quaternion.RotateTowards(
+            transform.rotation,
+            targetRot,
+            turnSpeed * Time.deltaTime
+        );
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Spawn explosion at rocket position, NOT as a child
         Instantiate(particles, transform.position, Quaternion.identity);
-
-        // Destroy rocket
         Destroy(gameObject);
     }
 }

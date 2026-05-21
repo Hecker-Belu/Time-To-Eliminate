@@ -71,6 +71,7 @@ MonoBehaviour:
   particles: {fileID: 1249497582831427494, guid: f7317a356eecde54ba71efb5d021d9ed, type: 3}
   speed: 15
   lifetime: 10
+  turnSpeed: 90
 --- !u!1 &6633026724470715162
 GameObject:
   m_ObjectHideFlags: 0
