@@ -467,7 +467,15 @@ public class Player : MonoBehaviour
             manager.Lose();
         }
         if (other.CompareTag("Enemy"))
-            TakeDamage(25);
+            if (other.gameObject.TryGetComponent<EnemyGround>(out var enemy)) {
+                if (enemy.DoesDamage)
+                {
+                    TakeDamage(25);
+                }
+            } else
+            {
+                TakeDamage(25);
+            }
     }
 
     private void OnCollisionEnter(Collision other)

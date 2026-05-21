@@ -13,6 +13,8 @@ public class EnemyGround : MonoBehaviour
     float verticalVelocity = 0f;
     float gravity = -20f; // stronger than Unity default
 
+    public bool DoesDamage = true;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
